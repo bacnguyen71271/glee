@@ -56,7 +56,7 @@ import { TranslateService } from '@ngx-translate/core';
     </nav>
   </header>
   `,
-  styleUrls: ['./home-header.component.css']
+  styleUrls: ['../../../assets/css/style.css']
 })
 export class HomeHeaderComponent implements OnInit {
   

@@ -1,6 +1,5 @@
 import { Component } from '@angular/core';
 
-import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-root',
@@ -8,14 +7,6 @@ import { TranslateService } from '@ngx-translate/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'javgle';
-
-  constructor(private translate: TranslateService) {
-    translate.setDefaultLang('en');
-  }
-
-  switchLanguage(language: string) {
-    this.translate.use(language);
-  }
+ 
   
 }
