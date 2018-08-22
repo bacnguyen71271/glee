@@ -1,24 +1,31 @@
 import { Component, OnInit } from '@angular/core';
-import {FormsModule, NgModel} from '@angular/forms'
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-login',
   templateUrl : './login.component.html',
-  styleUrls: ['../../assets/css/login-style.css']
+  styleUrls: ['../../assets/css/ad-style.css']
 })
 
 
 export class LoginComponent implements OnInit {
 
-  tesst='';   
-  password='';
+  constructor(
+    private _notifications: NotificationsService,
+    private _fb: FormBuilder
+  ) { }
 
-  onSubmit(){
 
-  }
-  constructor() { }
+  ngOnInit() {}
 
-  ngOnInit() {
+  login(){
+    console.log("notify")
+    this._notifications.success("title", "content",{timeOut: 5000,
+      showProgressBar: true,
+      pauseOnHover: false,
+      clickToClose: false,
+      maxLength: 10})
   }
 
 }

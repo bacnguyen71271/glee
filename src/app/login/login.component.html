@@ -4,15 +4,14 @@
         <div class="row w-100">
           <div class="col-lg-4 mx-auto">
             <div class="auto-form-wrapper">
-              <div class="logo"></div>
-              <form>
+              <form #formLogin="ngForm">
                 <div class="form-group">
                   <label class="label">Username</label>
                   <div class="input-group">
-                    <input type="text" class="form-control" [(ngModel)]='LoginComponent.tesst' placeholder="Username" required>
+                    <input type="text" class="form-control" ngModel name='username' placeholder="Username" required>
                     <div class="input-group-append">
                       <span class="input-group-text">
-                        <i class="mdi mdi-check-circle-outline"></i>
+                        <i class="mdi mdi-check-circle-outline" [style.color]="formLogin.controls.username?.invalid ? 'DarkGrey': 'LimeGreen'"></i>
                       </span>
                     </div>
                   </div>
@@ -20,16 +19,16 @@
                 <div class="form-group">
                   <label class="label">Password</label>
                   <div class="input-group">
-                    <input type="password" class="form-control" placeholder="*********" required>
+                    <input type="password" class="form-control" ngModel name="password" placeholder="*********" required>
                     <div class="input-group-append">
                       <span class="input-group-text">
-                        <i class="mdi mdi-check-circle-outline"></i>
+                        <i class="mdi mdi-check-circle-outline" [style.color]="formLogin.controls.password?.invalid ? 'DarkGrey': 'LimeGreen'"></i>
                       </span>
                     </div>
                   </div>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary submit-btn btn-block" (click)="onSubmit()">Login</button>
+                  <button [disabled]="formLogin.invalid" class="btn btn-primary submit-btn btn-block" (click)="login()">Login</button>
                 </div>
                 <div class="form-group d-flex justify-content-between">
                   
@@ -42,6 +41,7 @@
                 </div>
               </form>
             </div>
+            <simple-notifications></simple-notifications>
             <ul class="auth-footer">
               <li>
                 <a href="#">Conditions</a>
